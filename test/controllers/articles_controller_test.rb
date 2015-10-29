@@ -28,9 +28,14 @@ class ArticlesControllerTest < ActionController::TestCase
 
   test "#create" do
     assert_difference 'Article.count' do
-      post :create, article: {title: "Test", text: "Fun test"}
+      post :create, article: {title: "Tests", text: "Fun test"}
     end
     assert_redirected_to article_url(assigns(:article))
+  end
+
+  test "should redirect to show for failed #create" do
+    post :create, article: {title: "", text: "Fun test" }
+    assert_template :new
   end
 
 
