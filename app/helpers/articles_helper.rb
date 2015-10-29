@@ -1,4 +1,5 @@
 module ArticlesHelper
+  # Figure out how to make nested content_tag's work.. code is not working
   def form_errors(article)
     if article.errors.any?
       content_tag :div, id: "error_explanation" do
